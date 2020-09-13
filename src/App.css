@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
-}
+@import '~antd/dist/antd.css';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* stacked column below 48em */
+.flex-split-left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+
   color: white;
+  height: auto;
+  /*box-shadow: inset 0 0 1px white;*/
 }
 
-.App-link {
-  color: #61dafb;
+
+.flex-split-left a {
+  text-decoration: overline;
+  color: white;
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.flex-split-right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  color: hsl(0, 0%, 14%);
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  height: auto;
+}
+
+.flex-split {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  min-height: 100vh;
+  overflow: hidden;
+
+}
+
+/***************************/
+/* SPLIT SCREEN ABOVE 60EM */
+/***************************/
+@media all and (min-width:60em) {
+  .flex-split>div {
+    min-width: 50%;
+    width: 50%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .flex-split {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    overflow: hidden;
+    height: 100vh;
+    /*This here in flex-parent for making only certain items scrollable */
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: overflow;
   }
+
+  /*circular buttons in the middle at big enough screens*/
+
+}
+
+.flex-split>div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
